@@ -13,6 +13,7 @@ public class StreamExample {
 
         // https://bit.ly/2rkJHSy
         // https://bit.ly/2SprEGk
+        // https://bit.ly/2BPaKeA
 
         List<String> items = new ArrayList<String>();
         items.add("um");
