@@ -1,8 +1,7 @@
 import classes.Pessoa;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -21,7 +20,7 @@ public class StreamExample {
         items.add("dois");
         items.add("doze");
 
-        List<Pessoa> pessoas = Arrays.asList(new Pessoa("1", "Leonardo", Arrays.asList("123","456")), new Pessoa("2", "Leandro", Arrays.asList("789","987")));
+        List<Pessoa> pessoas = Arrays.asList(new Pessoa(1, "Leonardo", Arrays.asList("123","456")), new Pessoa(2, "Leandro", Arrays.asList("789","987")));
 
         // CRIANDO UM STREAM (parallelStream(), possibilitará paralelizar o seu processamento, oferecendo maior eficiência ao processamento).
         Stream<String> stream = items.stream();
@@ -54,5 +53,17 @@ public class StreamExample {
         System.out.println(isValidTwo);
         System.out.println(isValidThree);
 
+        // USANDO REDUCE
+        List<Integer> integers = Arrays.asList(1, 1, 1);
+        Integer reduced = integers.stream().reduce(23, (a, b) -> a + b);
+        Optional<Integer> cleanReduced = integers.stream().reduce((a, b) -> a + b);
+
+        // USANDO MÉTRICAS MATEMATICAS
+        double averagePrice = pessoas.stream().collect(Collectors.averagingInt(Pessoa::getId));
+        int summingPrice = pessoas.stream().collect(Collectors.summingInt(Pessoa::getId));
+        IntSummaryStatistics statistics = pessoas.stream().collect(Collectors.summarizingInt(Pessoa::getId));
+        System.out.println(averagePrice);
+        System.out.println(summingPrice);
+        System.out.println(statistics);
     }
 }
