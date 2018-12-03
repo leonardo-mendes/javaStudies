@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class StreamExample {
 
@@ -16,15 +15,23 @@ public class StreamExample {
             items.add("um");
             items.add("dois");
             items.add("três");
-            Stream<String> stream = items.stream();
+            StreamExample<String> stream = items.stream();
         */
 
         /* CRIAÇÃO DE STREAM A PARTIR DE I/O, ARRAYS E VALORES.
-            Stream <String> lines= Files.lines(Paths.get(“myFile.txt”),       Charset.defaultCharset());
-            Stream<Integer> numbersFromValues = Stream.of(1, 2, 3, 4, 5);
+            StreamExample <String> lines= Files.lines(Paths.get(“myFile.txt”),       Charset.defaultCharset());
+            StreamExample<Integer> numbersFromValues = StreamExample.of(1, 2, 3, 4, 5);
             IntStream numbersFromArray = Arrays.stream(new int[] {1, 2, 3, 4, 5});
         */
 
-        System.out.println("Java Studies");
+        /* USANDO DISTINCT
+            List<String> items = new ArrayList<String>();
+            items.add("um");
+            items.add("dois");
+            items.add("dois");
+            long count = items.stream().distinct().count();
+            System.out.println(count);
+        */
+        System.out.println("Ola");
     }
 }
