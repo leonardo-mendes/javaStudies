@@ -6,18 +6,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamExample {
-
-    // A proposta em torno da Streams API é reduzir a preocupação do desenvolvedor com a forma de implementar controle de fluxo ao lidar com coleções, deixando isso a cargo da API.
-
+    
     public static void main(String[] args) {
-
-        // https://bit.ly/2rkJHSy
-        // https://bit.ly/2SprEGk
-        // https://bit.ly/2BPaKeA
-
-        // Collections Framework - https://bit.ly/2zK1Iyb
-        // Minimo Java 8 (Certificação) - https://bit.ly/1l56vy0
-        // Sort - https://bit.ly/2BQrEJX
 
         List<String> items = new ArrayList<String>();
         items.add("um");
