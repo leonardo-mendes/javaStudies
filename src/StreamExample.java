@@ -17,6 +17,7 @@ public class StreamExample {
 
         // Collections Framework - https://bit.ly/2zK1Iyb
         // Minimo Java 8 (Certificação) - https://bit.ly/1l56vy0
+        // Sort - https://bit.ly/2BQrEJX
 
         List<String> items = new ArrayList<String>();
         items.add("um");
@@ -24,7 +25,10 @@ public class StreamExample {
         items.add("dois");
         items.add("doze");
 
-        List<Pessoa> pessoas = Arrays.asList(new Pessoa(1, "Leonardo", Arrays.asList("123","456")), new Pessoa(2, "Leandro", Arrays.asList("789","987")), new Pessoa(3, "Leonardo", Arrays.asList("123","456")));
+        List<Pessoa> pessoas = Arrays.asList(
+                new Pessoa(1, "Leonardo", Arrays.asList("123","456")),
+                new Pessoa(2, "Leandro", Arrays.asList("789","987")),
+                new Pessoa(3, "Leonardo", Arrays.asList("123","456")));
 
         // CRIANDO UM STREAM (parallelStream(), possibilitará paralelizar o seu processamento, oferecendo maior eficiência ao processamento).
         Stream<String> stream = items.stream();
@@ -70,7 +74,25 @@ public class StreamExample {
         System.out.println(summingPrice);
         System.out.println(statistics);
 
+        // OUTRAS IMPLEMENTAÇÕES
         System.out.println(pessoas.contains(new Pessoa(1, "Leonardo", Arrays.asList("123","456"))));
+        pessoas.sort(Comparator.comparing(Pessoa::getId).reversed());
+        pessoas.forEach(p -> System.out.println(p.getId()));
 
+        pessoas.stream().sorted(Comparator.comparing(Pessoa::getId)).forEach(p -> System.out.println(p.getName()));
+
+        List repetidos = new ArrayList();
+        IntStream.range(0, pessoas.size()).sorted().forEach(p-> {
+            pessoas.sort(Comparator.comparing(Pessoa::getName));
+            if(p < pessoas.size()-1){
+                if(pessoas.get(p).getName().equalsIgnoreCase(pessoas.get(p+1).getName())){
+                    repetidos.add(pessoas.get(p).getName());
+                }
+            }
+        });
+        System.out.println(repetidos.stream().distinct().count());
+
+        pessoas.sort(Comparator.comparingInt(a -> a.getName().length()));
+        System.out.println(pessoas.get(0).getName());
     }
 }
