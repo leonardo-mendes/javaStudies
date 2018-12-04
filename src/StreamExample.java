@@ -15,13 +15,16 @@ public class StreamExample {
         // https://bit.ly/2SprEGk
         // https://bit.ly/2BPaKeA
 
+        // Collections Framework - https://bit.ly/2zK1Iyb
+        // Minimo Java 8 (Certificação) - https://bit.ly/1l56vy0
+
         List<String> items = new ArrayList<String>();
         items.add("um");
         items.add("dois");
         items.add("dois");
         items.add("doze");
 
-        List<Pessoa> pessoas = Arrays.asList(new Pessoa(1, "Leonardo", Arrays.asList("123","456")), new Pessoa(2, "Leandro", Arrays.asList("789","987")));
+        List<Pessoa> pessoas = Arrays.asList(new Pessoa(1, "Leonardo", Arrays.asList("123","456")), new Pessoa(2, "Leandro", Arrays.asList("789","987")), new Pessoa(3, "Leonardo", Arrays.asList("123","456")));
 
         // CRIANDO UM STREAM (parallelStream(), possibilitará paralelizar o seu processamento, oferecendo maior eficiência ao processamento).
         Stream<String> stream = items.stream();
@@ -66,5 +69,8 @@ public class StreamExample {
         System.out.println(averagePrice);
         System.out.println(summingPrice);
         System.out.println(statistics);
+
+        System.out.println(pessoas.contains(new Pessoa(1, "Leonardo", Arrays.asList("123","456"))));
+
     }
 }

@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Pessoa {
 
@@ -39,5 +40,20 @@ public class Pessoa {
 
     public void setTelefones(List<String> telefones) {
         this.telefones = telefones;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(id, pessoa.id) &&
+                Objects.equals(name, pessoa.name) &&
+                Objects.equals(telefones, pessoa.telefones);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, telefones);
     }
 }
